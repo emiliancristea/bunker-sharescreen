@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen Share App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Screen Share App</h1>
+    </header>
+
+    <div class="controls">
+      <div class="room-section">
+        <input type="text" id="roomId" placeholder="Enter Room ID (e.g., room123)">
+        <button id="joinBtn">Join Room</button>
+      </div>
+
+      <div class="share-section" style="display: none;">
+        <div class="share-actions">
+          <button id="shareBtn">Share My Screen</button>
+          <button id="stopBtn" style="display: none;">Stop Sharing</button>
+        </div>
+        <div class="frame-rate">
+          <label for="frameRate">Target FPS</label>
+          <select id="frameRate">
+            <option value="60" selected>60 FPS</option>
+            <option value="120">120 FPS</option>
+          </select>
+        </div>
+        <div class="status">
+          <span id="roomStatus"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screens-container">
+      <div class="my-screen">
+        <h3>My Screen</h3>
+        <video id="localVideo" autoplay muted playsinline></video>
+      </div>
+
+      <div class="remote-screens">
+        <h3>Shared Screens</h3>
+        <div id="remoteVideos"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
